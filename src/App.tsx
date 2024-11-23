@@ -1,33 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react"
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [boxes, setBoxes] = useState(() => Array({length: 100}).map((shit, index) => (index)))
 
+  const handleDragStart = (event: React.DragEvent<HTMLDivElement>) => {
+    
+  }
+
+  const handleDragOver = (event: React.DragEvent<HTMLDivElement>) => {
+
+  }
+
+  const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
+
+  }
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+
+      {boxes.map((event) => (
+        <div key={event} draggable={true} onDragStart={handleDragStart} onDragOver={handleDragOver} onDrop={handleDrop}>{event}</div>
+      ))}
     </>
   )
 }
